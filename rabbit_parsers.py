@@ -3,7 +3,6 @@ from rabbit_helper import Rabbit
 from aiohttp import ClientSession
 import random
 from discord import Webhook, AsyncWebhookAdapter, AllowedMentions
-from discord.http import HTTPClient
 
 responses = [
     r"(╯°□°）╯︵ ┻━┻",
