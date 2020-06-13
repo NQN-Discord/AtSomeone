@@ -1,13 +1,16 @@
 import yaml
 import asyncio
 from rabbit_parsers import AtSomeoneRabbit
+from aiopg import connect
 
 
 async def main(config):
-    rabbit = AtSomeoneRabbit(config)
-    await rabbit.connect()
-    print("Connected")
-    await rabbit.consume()
+    async with connect(config["postgres_uri"]) as conn:
+        async with conn.cursor() as cur:
+            rabbit = AtSomeoneRabbit(config, cur)
+            await rabbit.connect()
+            print("Connected")
+            await rabbit.consume()
 
 
 if __name__ == "__main__":
