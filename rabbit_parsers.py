@@ -21,8 +21,6 @@ responses = [
 
 
 class AtSomeoneRabbit(Rabbit):
-    EXCHANGE = "GUILD_STATE"
-
     def __init__(self, config, cur):
         super(AtSomeoneRabbit, self).__init__(config["rabbit_uri"])
         self.webhook_uri = config["webhook_uri"]
