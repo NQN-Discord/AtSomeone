@@ -4,3 +4,4 @@ aiopg
 aiohttp
 git+git://github.com/Rapptz/discord.py.git@421d8bf8cae84b58b7242fd18f5583804de1e3e2
 git+git://github.com/NQN-Discord/rabbit_helper.git
+sentry-sdk==0.15.1

@@ -2,9 +2,12 @@ import yaml
 import asyncio
 from rabbit_parsers import AtSomeoneRabbit
 from aiopg import connect
+import sentry_sdk
 
 
 async def main(config):
+    if config.get("sentry"):
+        sentry_sdk.init(config["sentry"])
     async with connect(config["postgres_uri"]) as conn:
         async with conn.cursor() as cur:
             rabbit = AtSomeoneRabbit(config, cur)
